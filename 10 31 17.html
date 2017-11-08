@@ -11,10 +11,35 @@
             font-size: 20pt;
 
         }
+        body{
+                background-image: url("1.jpg") ;
+
+    }
+        img{
+            width:200px;
+            height:200px;
+        }
+        h2{
+            font-size: 20pt;
+
+        }
+            img{
+            width:200px;
+            height:200px;
+        }
+        h2{
+            font-size: 20pt;
+
+        }
+    
+            h2{
+            font-size: 20pt;
+
+        }
     
     </style>
     <script>
-    function invoice(amount){
+    function invoice(){
                 
             var subtotal = document.getElementById("subtotal");
             var Quantity1 = document.getElementById("Quantity1");
@@ -29,28 +54,28 @@
             var wholesaleprice2 = 2.00;
             var wholesaleprice3 = 1.99;
 
-            var profit =document.getElementById(profit);
+            var output = document.getElementById("output");
+
+            var profit = document.getElementById(profit);
         
-            profit = ((retailprice1 * Quantity1) + (retailprice2 * Quantity2) + (retailprice3 * Quantity3)) -  ;
+            profit = ((retailprice1 * Quantity1) + (retailprice2 * Quantity2) + (retailprice3 * Quantity3)) - ((wholesaleprice1 * Quantity1) + (wholesaleprice2 * Quantity2) + (wholesaleprice3 * Quantity3)) ;
                 
-            var tax = parseFloat(subtotal.value) * 0.0875;
-            subtotal = parseFloat(Quantity1.value) * parseFloat(Quantity2.value) * parseFloat(Quantity3.value);
+            var tax = subtotal.value * 0.0875;
+            subtotal = (Quantity1.value) * (Quantity2.value) * (Quantity3.value);
                 
             var shipping = parseFloat(3.00);
                 
             var total = subtotal + tax + shipping;
                 
-            var build = "";
-            build += "Total items \n"
-            build += Quantity1 + Quantity2 + Quantity3 + "\n"
-            build += 
+             var build = "Your price is " + total;
 
-            
+            build += "Total items \n"
+
+            output.innerHTML(build);
 
     </script>
 </head>
     <body>
-        <div>
             <h4> Sketch Book </h4>
             <img src="book.jpg"><br>
             <img src="10449300.jpg"><br>
@@ -62,23 +87,8 @@
             This Sketch book was made from the finest of trees, silky smooth paper for all of your artistic needs. No smudging or unwanted blending.
             </p>
             <input id="quantity1" type="text" placeholder="how many do you want?">
-        </div>
     </body>
-    <head>
-    <style>
-        img{
-            width:200px;
-            height:200px;
-        }
-        h2{
-            font-size: 20pt;
-
-        }
-    
-    </style>
-</head>
     <body>
-        <div>
             <h4> Colored Pencils </h4>
             <img src="pencils.png"><br>
             <img src="penzils.jpg"><br>
@@ -90,26 +100,8 @@
             Beautiful colors at an amazing price! Used for the finest of arts.
             </p>
             <input id="quantity2" type="text" placeholder="How many do you want?">
-        </div>
     </body>
-    <head>
-    <style>
-        img{
-            width:200px;
-            height:200px;
-        }
-        h2{
-            font-size: 20pt;
-
-        }
-    
-    </style>
-    <script>
-        
-    </script>
-    </head>
     <body>
-        <div>
             <h4> Crayola markers (10 Pack) </h4>
             <img src="markers.jpg"><br>
              <img src="Crayola-Markers.jpg"><br>
@@ -121,29 +113,23 @@
             Beautiful colors at an amazing price! Used for the finest of arts.
             </p>
             <input id="quantity3" type="text" placeholder="How much do you want?">
-        </div>
     </body>
  <head>
    
     <style>
-        h2{
-            font-size: 20pt;
 
-        }
-    
     </style>
     <script>
           
     </script>
 </head>
     <body>
-        <div>
             <h4> Final Checkout </h4>
             <button onclick "invoice()">
             Proceed to check out
             </button onclick>
             <span>Thank you for your purchase</span>
-        </div>
+            <div id = "output" >
+            </div>
     </body>
-
 </html>
