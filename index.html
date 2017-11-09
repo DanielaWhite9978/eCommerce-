@@ -12,7 +12,7 @@
 
         }
         body{
-                background-image: url("1.jpg") ;
+                background-color: pink ;
 
     }
         img{
@@ -40,8 +40,8 @@
     </style>
     <script>
     function invoice(){
-                
-            var subtotal = document.getElementById("subtotal");
+           
+            var output = document.getElementById("output");
             var Quantity1 = document.getElementById("Quantity1");
             var Quantity2 = document.getElementById("Quantity2");
             var Quantity3 = document.getElementById("Quantity3");
@@ -54,23 +54,21 @@
             var wholesaleprice2 = 2.00;
             var wholesaleprice3 = 1.99;
 
-            var output = document.getElementById("output");
-
             var profit = document.getElementById(profit);
         
-            profit = ((retailprice1 * Quantity1) + (retailprice2 * Quantity2) + (retailprice3 * Quantity3)) - ((wholesaleprice1 * Quantity1) + (wholesaleprice2 * Quantity2) + (wholesaleprice3 * Quantity3)) ;
+            profit = ((retailprice1 * Quantity1.value) + (retailprice2 * Quantity2.value) + (retailprice3 * Quantity3.value)) - ((wholesaleprice1 * Quantity1.value) - (wholesaleprice2 * Quantity2.value) + (wholesaleprice3 * Quantity3.value)) ;
                 
-            var tax = subtotal.value * 0.0875;
-            subtotal = (Quantity1.value) * (Quantity2.value) * (Quantity3.value);
+
+            var subtotal = ((retailprice1 * Quantity1.value) + (retailprice2 * Quantity2.value) + (retailprice3 * Quantity3.value));
+            var tax = subtotal * 0.0875;
+            var shipping = 3.00;
                 
-            var shipping = parseFloat(3.00);
+            var total = (subtotal) + (tax) + (shipping);
                 
-            var total = subtotal + tax + shipping;
-                
-             var build = "Your price is " + total;
+            var build = "Your price is " + total;
 
             build += "Total items \n"
-
+            
             output.innerHTML = build;
     }
 
@@ -82,8 +80,8 @@
             <img src="book.jpg"><br>
             <img src="10449300.jpg"><br>
             <span>$10.00</span>
-            <input id="quantity1" type="text" placeholder="how many do you want?">
-            <button onclick "invoice()">
+            <input id="Quantity1" type="text" placeholder="how many do you want?">
+            <button onclick = "invoice()">
             Add to Cart
             </button onclick>
 
@@ -96,31 +94,34 @@
             <h4> Colored Pencils </h4>
             <img src="pencils.png"><br>
             <img src="penzils.jpg"><br>
-            <button onclick "invoice()">
+            <span>$5.00</span>
+            <input id="Quantity2" type="text" placeholder="How many do you want?">
+            <button onclick = "invoice()">
             Add to Cart
             </button onclick>
-            <span>$5.00</span>
+            
             <p>
             Beautiful colors at an amazing price! Used for the finest of arts.
             </p>
-            <input id="quantity2" type="text" placeholder="How many do you want?">
+            
 
 
             <h4> Crayola markers (10 Pack) </h4>
             <img src="markers.jpg"><br>
-             <img src="Crayola-Markers.jpg"><br>
-            <button onclick "invoice()">
+            <img src="Crayola-Markers.jpg"><br>
+            <span>$3.99</span>
+            <input id="Quantity3" type="text" placeholder="How much do you want?">
+            <button onclick = "invoice()">
             Add to Cart
             </button onclick>
-            <span>$3.99</span>
+           
             <p>
-            Beautiful colors at an amazing price! Used for the finest of arts.
+           Markers coming from the famous brand Crayola, Sold cheaper then usual here. Enjoy them while you can buy them!
             </p>
-            <input id="quantity3" type="text" placeholder="How much do you want?">
 
 
             <h4> Final Checkout </h4>
-            <button onclick "invoice()">
+            <button onclick = "invoice()">
             Proceed to check out
             </button onclick>
             <span>Thank you for your purchase</span>
